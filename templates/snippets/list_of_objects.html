@@ -1,0 +1,13 @@
+{% if list_of_objects %}
+<ul>
+{% for object in list_of_objects %}
+<li>
+    {% ifequal request.path object.get_absolute_url %}
+    {{ object }}
+    {% else %}
+    <a href="{{ object.get_absolute_url  }}">{{ object }}</a>
+    {% endifequal %}
+</li>
+{% endfor %}
+</ul> 
+{% endif %}
