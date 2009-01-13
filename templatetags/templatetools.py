@@ -262,10 +262,13 @@ def romanize_filter(value, to_upper=True):
     After:  integer turned to roman numeral
     """
     if isinstance(value, int) or isinstance(value, long):
-        if to_upper:
-            return toRoman(value)
+        if value == 0:
+            return "0"
         else:
-            return toRoman(value).lower()
+            if to_upper:
+                return toRoman(value)
+            else:
+                return toRoman(value).lower()
     else:
         return value
 register.filter('romanize', romanize_filter)
